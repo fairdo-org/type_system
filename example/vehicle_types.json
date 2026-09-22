@@ -1,0 +1,98 @@
+{
+    "0.FDO/AttributeDefNumberofWheels": [
+        {
+            "0.FDO/Type": "0.FDO/Profile"
+        },
+        {
+            "0.FDO/Profile": "0.FDO/AttributeDefSyntax"
+        },
+        {
+            "0.FDO/Data": "self"
+        },
+        {
+            "0.FDO/Name": "number_of_wheels"
+        },
+        {
+            "0.FDO/Description": "The number of wheels on the transport vehicle."
+        },
+        {
+            "0.FDO/Cardinality": "1..1"
+        },
+        {
+            "0.FDO/PrimitiveDataType": "integer"
+        },
+        {
+            "0.FDO/Whitelist": "2"
+        },
+        {
+            "0.FDO/Whitelist": "4"
+        },
+        {
+            "0.FDO/Whitelist": "6"
+        },
+        {
+            "0.FDO/Whitelist": "8"
+        }
+    ],
+    "0.FDO/AttributeDefColorOf": [
+        {
+            "0.FDO/Type": "0.FDO/Profile"
+        },
+        {
+            "0.FDO/Profile": "0.FDO/AttributeDefSyntax"
+        },
+        {
+            "0.FDO/Data": "self"
+        },
+        {
+            "0.FDO/Name": "color_of"
+        },
+        {
+            "0.FDO/Description": "The color of the transport vehicle."
+        },
+        {
+            "0.FDO/Cardinality": "0..1"
+        },
+        {
+            "0.FDO/PrimitiveDataType": "string"
+        },
+        {
+            "0.FDO/Whitelist": "red"
+        },
+        {
+            "0.FDO/Whitelist": "blue"
+        },
+        {
+            "0.FDO/Whitelist": "green"
+        },
+        {
+            "0.FDO/Whitelist": "black"
+        },
+        {
+            "0.FDO/Whitelist": "white"
+        }
+    ],
+    "0.FDO/ProfileDefVehicle": [
+        {
+            "0.FDO/Type": "0.FDO/Profile"
+        },
+        {
+            "0.FDO/Profile": "0.FDO/ProfileDef"
+        },
+        {
+            "0.FDO/Data": "self"
+        },
+        {
+            "0.FDO/Name": "vehicle_profile"
+        },
+        {
+            "0.FDO/Description": "A profile for transport vehicles containing color and number of wheels."
+        },
+        {
+            "0.FDO/Attribute": "0.FDO/AttributeDefColorOf"
+        },
+        {
+            "0.FDO/Attribute": "0.FDO/AttributeDefNumberofWheels"
+        }
+    ]
+}

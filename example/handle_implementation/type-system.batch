@@ -1,0 +1,360 @@
+AUTHENTICATE PUBKEY:300::0.NA/21.T11970
+/Users/sbinger/Projects/ePIC/Prefix_Administration/21.T11970/admpriv.bin
+
+CREATE 21.T11970/Type
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefAttrRef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_type
+5 21.T11970/Description 86400 1110 UTF8 The FDO type gives a hint to a machine how the identified resource may be processed. It points to the attribute that further specifies the FDO type.
+6 21.T11970/Cardinality 86400 1110 UTF8 1..n
+
+CREATE 21.T11970/Data
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefUnion
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_data
+5 21.T11970/Description 86400 1110 UTF8 The 21.T11970/Data attribute is the entry point to find the data associated with an FDO. If the identified resource is physical or conceptual, the string "self" is used. If the resource it digital, 21.T11970/Data points to the Attribute that references the digital resource.
+6 21.T11970/Cardinality 86400 1110 UTF8 1..n
+7 21.T11970/AllowedAttribute 86400 1110 UTF8 21.T11970/DataAsSelf
+8 21.T11970/AllowedAttribute 86400 1110 UTF8 21.T11970/DataAsAttrRef
+
+CREATE 21.T11970/DataAsSelf
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_data_as_self
+5 21.T11970/Description 86400 1110 UTF8 If identified resource is physical or conceptual, the string "self" is used as the value of 21.T11970/Data.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..1
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+8 21.T11970/Whitelist 86400 1110 UTF8 self
+
+CREATE 21.T11970/DataAsAttrRef
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefAttrRef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_data_as_attr
+5 21.T11970/Description 86400 1110 UTF8 If the identified resource it digital, 21.T11970/Data points to the attribute that references the digital resource.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..n
+
+CREATE 21.T11970/Profile
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefProfileRef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_profile
+5 21.T11970/Description 86400 1110 UTF8 This attribute points to a FDO profile. The FDO profile is a template for any FDO record instantiating this profile.
+6 21.T11970/Cardinality 86400 1110 UTF8 1..n
+7 21.T11970/AllowedProfile 86400 1110 UTF8 21.T11970/ProfileDef
+
+CREATE 21.T11970/Name
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_resource_name
+5 21.T11970/Description 86400 1110 UTF8 A localized human-readable name for the identified resource
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+
+CREATE 21.T11970/Description
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_resource_description
+5 21.T11970/Description 86400 1110 UTF8 A localized human-readable description for the identified resource
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+
+CREATE 21.T11970/Cardinality
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_cardinality
+5 21.T11970/Description 86400 1110 UTF8 Obligation and repeatability of the given attribute in an FDO record that uses this attribute.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..1
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+8 21.T11970/Regex 86400 1110 UTF8 ^(\d+)(\.\.(\d+|\*))?$
+
+CREATE 21.T11970/PrimitiveDataType
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_primitive_data_type
+5 21.T11970/Description 86400 1110 UTF8 A basic classification of which type of value an attribute is allowed to take on.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..1
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+8 21.T11970/Whitelist 86400 1110 UTF8 string
+9 21.T11970/Whitelist 86400 1110 UTF8 number
+10 21.T11970/Whitelist 86400 1110 UTF8 integer
+11 21.T11970/Whitelist 86400 1110 UTF8 boolean
+
+CREATE 21.T11970/Regex
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_regular_expression
+5 21.T11970/Description 86400 1110 UTF8 A string defining a regular expression
+6 21.T11970/Cardinality 86400 1110 UTF8 0..1
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+
+CREATE 21.T11970/NumericInterval
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_numeric_interval
+5 21.T11970/Description 86400 1110 UTF8 A numeric interval of the form (a,b) (a,b] [a,b) or [a,b]. A square bracket means including the boundary, round bracket means excluding the boundary. a and b are decimal numbers.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..1
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+8 21.T11970/Regex 86400 1110 UTF8 ^\s*(?:\[\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\]|\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)|\[\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)|\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\])\s*$
+
+CREATE 21.T11970/Whitelist
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_whitelist
+5 21.T11970/Description 86400 1110 UTF8 An exhaustive enumeration of values (strings) to accept. Other values are rejected.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+
+CREATE 21.T11970/Blacklist
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_blacklist
+5 21.T11970/Description 86400 1110 UTF8 A non-exhaustive enumeration of values (strings) to reject.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+
+CREATE 21.T11970/AllowedAttributeInAttrRef
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefProfileRef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_allowed_attribute_in_attr
+5 21.T11970/Description 86400 1110 UTF8 An attribute definition PID that is allowed as the value of an attribute that uses attribute referencing.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefProfileRef
+8 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefAttrRef
+9 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefComb
+10 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefUnion
+11 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+12 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDef
+
+CREATE 21.T11970/AllowedPlainNameInAttrRef
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_allowed_plain_name_in_attr_ref
+5 21.T11970/Description 86400 1110 UTF8 A plain name that is allowed as the value of an attribute that uses attribute referencing.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+
+CREATE 21.T11970/AllowedProfileInProfileRef
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefProfileRef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_allowed_profile_in_profile
+5 21.T11970/Description 86400 1110 UTF8 PID of a profile that is allowed as the value of an attribute that uses profile referencing.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/ProfileDef
+
+CREATE 21.T11970/AllowedAttributeInCombination
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefUnion
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_allowed_attribute_in_combination
+5 21.T11970/Description 86400 1110 UTF8 An attribute that is part of an inline combination. The value is either a reference to an attribute, or a combination of an attribute and a localized cardinality.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/AllowedAttributeInUnion 86400 1110 UTF8 21.T11970/BasicAttribute
+8 21.T11970/AllowedAttributeInUnion 86400 1110 UTF8 21.T11970/RefinedAttribute
+
+CREATE 21.T11970/AllowedAttributeInUnion
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefUnion
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_allowed_attribute_in_union
+5 21.T11970/Description 86400 1110 UTF8 An attribute that is part of a union. The value is either a reference to an attribute, or a combination of an attribute and a localized cardinality.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/AllowedAttributeInUnion 86400 1110 UTF8 21.T11970/RefinedAttribute
+8 21.T11970/AllowedAttributeInUnion 86400 1110 UTF8 21.T11970/BasicAttribute
+
+CREATE 21.T11970/BasicAttribute
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefProfileRef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_basic_attribute
+5 21.T11970/Description 86400 1110 UTF8 A reference (PID) to an FDO attribute. Used in profiles, unions and inline combinations to specify which attributes must be in FDOs.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+8 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefUnion
+9 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefComb
+10 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefAttrRef
+11 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDefProfileRef
+12 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/AttributeDef
+
+CREATE 21.T11970/RefinedAttribute
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefComb
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_refined_attribute
+5 21.T11970/Description 86400 1110 UTF8 An attribute that is refined in a new context. The value is a combination of an attribute and a localized cardinality adapted to the new context.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Cardinality
+8 21.T11970/Attribute 86400 1110 UTF8 21.T11970/BasicAttribute
+
+CREATE 21.T11970/DenyAdditionalAttributes
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_prohibition_of_additional_ attributes
+5 21.T11970/Description 86400 1110 UTF8 If this attribute is not set or has a false value, additional attributes are allowed (recommended value)
+6 21.T11970/Cardinality 86400 1110 UTF8 0..1
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 boolean
+
+CREATE 21.T11970/Extends
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefProfileRef
+3 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+4 21.T11970/Data 86400 1110 UTF8 self
+5 21.T11970/Name 86400 1110 UTF8 FDO_extends_profile
+6 21.T11970/Description 86400 1110 UTF8 Reference to another profile that is extended by this profile.
+7 21.T11970/Cardinality 86400 1110 UTF8 0..*
+8 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+9 21.T11970/AllowedProfileInProfileRef 86400 1110 UTF8 21.T11970/ProfileDef
+
+CREATE 21.T11970/Attribute
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefUnion
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_attribute
+5 21.T11970/Description 86400 1110 UTF8 The attributes that are required by this profile. One can either use an attribute as it is, or refine it to adapt it to the given context by providing a localized cardinality.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..*
+7 21.T11970/AllowedAttributeInUnion 86400 1110 UTF8 21.T11970/RefinedAttribute
+8 21.T11970/AllowedAttributeInUnion 86400 1110 UTF8 21.T11970/BasicAttribute
+
+CREATE 21.T11970/Root
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/ProfileDef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_root_profile
+5 21.T11970/Description 86400 1110 UTF8 This FDO defines the root profile. Any FDO must be valid against the root profile. The root profile requires three attributes: 21.T11970/Type, 21.T11970/Profile, 21.T11970/Data.These three attributes must be used in any FDO. The root profile can and should be extended by other profiles.
+6 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Type
+7 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Data
+8 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Profile
+
+CREATE 21.T11970/ProfileDef
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/ProfileDef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_profile_definition
+5 21.T11970/Description 86400 1110 UTF8 This FDO defines the profile definition profile. It is the profile that validates any other profile, including itself. It is the template for defining new FDO profiles. Any FDO profile must be valid against this profile.
+6 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Description
+7 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Name
+8 21.T11970/Attribute 86400 1110 UTF8 21.T11970/DenyAdditionalAttributes
+9 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Extends
+10 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Attribute
+11 21.T11970/Extends 86400 1110 UTF8 21.T11970/Root
+
+CREATE 21.T11970/AttributeDefSyntax
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/ProfileDef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_attribute_definition_profile_
+5 21.T11970/Description 86400 1110 UTF8 This profile is the template to define new basic attributes (i.e., attributes that are based on syntactically validatable expressions).
+6 21.T11970/Extends 86400 1110 UTF8 21.T11970/AttributeDef
+7 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Regex
+8 21.T11970/Attribute 86400 1110 UTF8 21.T11970/NumericInterval
+9 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Whitelist
+10 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Blacklist
+11 21.T11970/Attribute 86400 1110 UTF8 21.T11970/PrimitiveDataType
+
+CREATE 21.T11970/AttributeDefProfileRef
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/ProfileDef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_attribute_definition_profile_for_profile_referencing
+5 21.T11970/Description 86400 1110 UTF8 This profile is the template to define a new attribute that uses the profile referencing mechanism. 
+6 21.T11970/Attribute 86400 1110 UTF8 21.T11970/AllowedProfilesInProfileRef
+7 21.T11970/Extends 86400 1110 UTF8 21.T11970/AttributeDef
+
+CREATE 21.T11970/AttributeDefAttrRef
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/ProfileDef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_attribute_definition_profile_
+5 21.T11970/Description 86400 1110 UTF8 This profile is the template to define a new attribute that uses the attribute referencing mechanism. 
+6 21.T11970/Extends 86400 1110 UTF8 21.T11970/AttributeDef
+7 21.T11970/Attribute 86400 1110 UTF8 21.T11970/AllowedAttributesInAttrRef
+8 21.T11970/Attribute 86400 1110 UTF8 21.T11970/AllowedPlainNamesInAttrRef
+
+CREATE 21.T11970/AttributeDefComb
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/ProfileDef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_attribute_definition_profile_for_inline_combination
+5 21.T11970/Description 86400 1110 UTF8 This profile is the template to define a new attribute that is an inline combination of existing attributes. 
+6 21.T11970/Attribute 86400 1110 UTF8 21.T11970/AllowedAttributeIn
+7 21.T11970/Extends 86400 1110 UTF8 21.T11970/AttributeDef
+
+CREATE 21.T11970/AttributeDefUnion
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/ProfileDef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_attribute_definition_profile_for_union
+5 21.T11970/Description 86400 1110 UTF8 This profile is the template to define a new attribute that is a union of existing attributes. 
+6 21.T11970/Extends 86400 1110 UTF8 21.T11970/AttributeDef
+7 21.T11970/Attribute 86400 1110 UTF8 21.T11970/AllowedAttributeInUnion
+
+CREATE 21.T11970/AttributeDef
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/ProfileDef
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_attribute_definition_profile
+5 21.T11970/Description 86400 1110 UTF8 This FDO profile is the base template to define new attributes. It is extended by five different templates:  21.T11970/AttributeDefSyntax, 21.T11970/AttributeDefComb, 21.T11970/AttributeDefUnion, 21.T11970/AttributeDefProfileRef, and 21.T11970/AttributeDefAttrRef. Each of those templates can be instantiated to define new attributes based on certain validation rules. An attribute that only instantiates 21.T11970/AttributeDef (and none of the extending templates) is validated to be a string.
+6 21.T11970/Extends 86400 1110 UTF8 21.T11970/Root
+7 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Name
+8 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Description
+9 21.T11970/Attribute 86400 1110 UTF8 21.T11970/Cardinality
+10 21.T11970/Attribute 86400 1110 UTF8 21.T11970/ValidationStrategyForCombination
+
+CREATE 21.T11970/ValidationStrategyForCombination
+100 HS_ADMIN 86400 1110 ADMIN 300::111111111111:0.NA/21.T11970
+1 21.T11970/Type 86400 1110 UTF8 21.T11970/Profile
+2 21.T11970/Profile 86400 1110 UTF8 21.T11970/AttributeDefSyntax
+3 21.T11970/Data 86400 1110 UTF8 self
+4 21.T11970/Name 86400 1110 UTF8 FDO_validation_strategy_for_combination
+5 21.T11970/Description 86400 1110 UTF8 An attribute can use several validation mechanisms simultaneously. Which validation mechanism applies depends on the profile(s) used by the attribute definition: 21.T11970/AttributeDefSyntax, 21.T11970/AttributeDefComb, 21.T11970/AttributeDefUnion, 21.T11970/AttributeDefProfileRef, and 21.T11970/AttributeDefAttrRef. If several of these profiles are used by one attribute definition, 21.T11970/ValidationStrategyForCombination determines whether at least one validation mechanism must apply (anyof), or all of them (allof). The default is allof, in which case the attribute can be omitted.
+6 21.T11970/Cardinality 86400 1110 UTF8 0..1
+7 21.T11970/PrimitiveDataType 86400 1110 UTF8 string
+8 21.T11970/Whitelist 86400 1110 UTF8 anyof
+9 21.T11970/Whitelist 86400 1110 UTF8 allof
+

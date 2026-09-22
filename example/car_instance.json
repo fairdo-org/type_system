@@ -1,0 +1,19 @@
+{
+    "21.T11970/car1":[
+    {
+        "0.FDO/Type": "vehicle"
+    },
+    {
+        "0.FDO/Profile": "0.FDO/ProfileDefVehicle"
+    },
+    {
+        "0.FDO/Data": "self"
+    },
+    {
+        "0.FDO/AttributeDefNumberofWheels": "4"
+    },
+    {
+        "0.FDO/AttributeDefColorOf": "blue"
+    }
+]
+}
