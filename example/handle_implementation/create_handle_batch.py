@@ -6,7 +6,7 @@ admin_key='300:111111111111:0.NA/21.T11970'
 
 # Default values
 
-input_json = 'type-system.json'
+input_json = '../../type-system.json'
 action = 'CREATE'
 
 if len(sys.argv) == 2: 
