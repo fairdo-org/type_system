@@ -1,17 +1,37 @@
-# First draft of the type system 
+# FDO Type System
 
-The type system can be found in type-system.json
+A flexible and extensible type system for FAIR Digital Objects (FDOs), enabling structured metadata management and validation.
+more 
+## Structure
 
-## Examples
+```
+type-system/
+├── type-system.json             # Main type system definition
+├── examples/
+│   ├── car_instance.json        # Minimal example instance
+│   ├── vehicle_types.json       # Example: vehicle types with attributes
+│   └── handle-implementation/   # Batch files for Handle System creation
+├── tools/
+│   ├── handle_validator.py        # Web-based validator UI
+│   └── batch-generator.js    # Tool to generate handle batch files
+└── README.md
+```
 
-A very simple example was created to demonstrate the use of the type system.
+## Usage
 
-### Handle implementation
+### Validate a Handle Instance
 
-A set of tools is provided to create handle-batch files that allow
-the creation of type system handles.
+Call `tools/handle_validator.py <pid>`
 
-The example files include additional (user) attributes and an instance.
+### Generate Handle Batch Files from Type Defintions in Json
 
+New attributes and profiles can be expressed in Json, see examples.
+For handle implementation generate batch files using: 
+  `python example/handle_implementation/create_handle_batch.py <filename>`
 
+To create PIDs using the batchfile you need to download the Handle System and call:
+  `handle-9.3.2/bin/hdl-genericbatch <batch-filename>`
+
+To validate a PID call:
+   `python  tools/handle_validator.py <pid>`
 
