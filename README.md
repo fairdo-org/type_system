@@ -1,7 +1,7 @@
 # FDO Type System
 
 A flexible and extensible type system for FAIR Digital Objects (FDOs), enabling structured metadata management and validation.
-more 
+
 ## Structure
 
 ```
