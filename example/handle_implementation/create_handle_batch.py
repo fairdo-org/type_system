@@ -7,10 +7,11 @@ load_dotenv()
 
 # Default values
 name_of_pubkey = str(os.getenv('NAME_OF_PUBKEY'))
-admin_key = str(os.getenv('ADMIN_KEY'))
+admin_key = str(os.getenv('ADMIN_KEY')) # for batch authorization
+prefix = str(os.getenv('PREFIX')) # for HS_ADMIN value
+admin_handle = str(os.getenv('ADMIN_HANDLE'))  # for HS_ADMIN value
+admin_index = str(os.getenv('ADMIN_INDEX'))  # for HS_ADMIN value
 
-input_json = 'type-system.json'
-action = 'CREATE'
 
 if len(sys.argv) == 4:
     input_json = sys.argv[1]
@@ -20,14 +21,6 @@ else:
     print('WARNING: Usage is ')
     print(' python create_handle_batch.py <input.json> <output> <action>')
     quit()
-# Commments
-# - Need to replace all 0.FDO with the prefix used
-
-# Config #####################################
-prefix = '21.T11970'
-admin_handle = '0.NA/21.T11970'
-admin_index = '300:'
-##############################################
 
 with open(input_json, 'r') as f:
     handles_sorted = json.load(f)
