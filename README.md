@@ -13,7 +13,6 @@ type-system/
 │   └── handle-implementation/   # Batch files for Handle System creation
 ├── tools/
 │   ├── handle_validator.py        # Web-based validator UI
-│   └── batch-generator.js    # Tool to generate handle batch files
 └── README.md
 ```
 
