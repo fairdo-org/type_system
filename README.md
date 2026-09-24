@@ -27,7 +27,15 @@ Call `tools/handle_validator.py <pid>`
 
 New attributes and profiles can be expressed in Json, see examples.
 For handle implementation generate batch files using: 
-  `python example/handle_implementation/create_handle_batch.py <filename>`
+  `python example/handle_implementation/create_handle_batch.py <input> <output> <action>`
+You need to provide a `.env` file with the following parameters
+```
+NAME_OF_PRIVKEY=<the location of the privkey used for batch authentication>
+ADMIN_KEY=<location of the pubkey for batch authentication  in the form >'300:111111111111:handle'
+ADMIN_HANDLE = <admin handle used for HS_ADMIN>
+ADMIN_INDEX = <index of pubkey fo HS_ADMIN>
+PREFIX = <prefix to be used>
+```
 
 To create PIDs using the batchfile you need to download the Handle System and call:
   `handle-9.3.2/bin/hdl-genericbatch <batch-filename>`

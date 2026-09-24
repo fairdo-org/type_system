@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Default values
-name_of_pubkey = str(os.getenv('NAME_OF_PUBKEY'))
+name_of_privkey = str(os.getenv('NAME_OF_PRIVKEY'))
 admin_key = str(os.getenv('ADMIN_KEY')) # for batch authorization
 prefix = str(os.getenv('PREFIX')) # for HS_ADMIN value
 admin_handle = str(os.getenv('ADMIN_HANDLE'))  # for HS_ADMIN value
@@ -27,7 +27,7 @@ with open(input_json, 'r') as f:
 
 with open(output, 'w') as f:
     f.write('AUTHENTICATE PUBKEY:'+admin_index+':'+admin_handle+'\n')
-    f.write(name_of_pubkey+'\n')
+    f.write(name_of_privkey+'\n')
     f.write('\n')
     for elem in handles_sorted:
         f.write(action+' '+ elem.replace('0.FDO',prefix) + '\n')
