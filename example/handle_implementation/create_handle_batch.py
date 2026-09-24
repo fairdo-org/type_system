@@ -1,12 +1,15 @@
 import json
 import sys
+import os
+from dotenv import load_dotenv
 
-name_of_pubkey='/Users/sbinger/Projects/ePIC/Prefix_Administration/21.T11970/admpriv.bin'
-admin_key='300:111111111111:0.NA/21.T11970'
+load_dotenv()
 
 # Default values
+name_of_pubkey = str(os.getenv('NAME_OF_PUBKEY'))
+admin_key = str(os.getenv('ADMIN_KEY'))
 
-input_json = '../../type-system.json'
+input_json = 'type-system.json'
 action = 'CREATE'
 
 if len(sys.argv) == 2: 
@@ -20,7 +23,7 @@ elif len(sys.argv) == 3:
 else:
     print('WARING: Too many parameters!')
 
-output = input_json.split('.')[0]+'.batch'
+output = input_json.split('.json')[0]+'.batch'
 print('Output: '+output)
 print('Action: '+action)
 # Commments
