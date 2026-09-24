@@ -129,11 +129,6 @@
         { "0.FDO/Name": "FDO_allowed_attribute_in_attr" },
         { "0.FDO/Description": "An attribute definition PID that is allowed as the value of an attribute that uses attribute referencing." },
         { "0.FDO/Cardinality": "0..*" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefProfileRef" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefAttrRef" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefComb" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefUnion" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefSyntax" },
         { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDef" }
     ],
     "0.FDO/AllowedPlainNameInAttrRef": [
@@ -181,11 +176,6 @@
         { "0.FDO/Name": "FDO_basic_attribute" },
         { "0.FDO/Description": "A reference (PID) to an FDO attribute. Used in profiles, unions and inline combinations to specify which attributes must be in FDOs." },
         { "0.FDO/Cardinality": "0..*" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefSyntax" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefUnion" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefComb" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefAttrRef" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefProfileRef" },
         { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDef" }
     ],
     "0.FDO/RefinedAttribute": [
