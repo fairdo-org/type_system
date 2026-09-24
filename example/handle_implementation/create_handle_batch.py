@@ -12,20 +12,14 @@ admin_key = str(os.getenv('ADMIN_KEY'))
 input_json = 'type-system.json'
 action = 'CREATE'
 
-if len(sys.argv) == 2: 
+if len(sys.argv) == 4:
     input_json = sys.argv[1]
-elif len(sys.argv) == 1: 
-    print('Usage: python create_handle_batch.py <filename.json> <action>')
-    print('Usage: Using default: type-system.json and action can be CREATE or MODIFY')
-elif len(sys.argv) == 3:
-    input_json = sys.argv[1]
-    action = sys.argv[2]
+    output = sys.argv[2]
+    action = sys.argv[3]
 else:
-    print('WARING: Too many parameters!')
-
-output = input_json.split('.json')[0]+'.batch'
-print('Output: '+output)
-print('Action: '+action)
+    print('WARNING: Usage is ')
+    print(' python create_handle_batch.py <input.json> <output> <action>')
+    quit()
 # Commments
 # - Need to replace all 0.FDO with the prefix used
 
