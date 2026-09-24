@@ -1,0 +1,75 @@
+import json
+
+with open('type-system.json', 'r') as f:
+    ts = json.load(f)
+
+with open('type-system-overview.md','w') as f:
+    f.write('```mermaid\n')
+    f.write('erDiagram\n')
+    for elem in ts:
+        f.write('  ' + elem.replace('0.FDO/','O.FDO-') + '{')
+        for att in ts[elem]:
+            key = list(att.keys())[0].replace('0.FDO/','O.FDO-')
+            val = list(att.values())[0].replace('0.FDO/','O.FDO-')
+
+            f.write('    ' + key + ' `')
+            maxl = 40
+            if len(val)>maxl:
+                valarr = val.split(' ')
+                count = 0 
+                text = ''
+                for term in valarr:
+                    count=count+len(term)
+                    text=text+term + ' '
+                    if count>maxl:
+                        f.write(text + '\n')
+                        count=0
+                        text=''
+                if len(text)>0:
+                    f.write(text)
+                f.write('`\n')
+            else: 
+                f.write( val + '`\n')
+        f.write('}\n')
+    # find relations
+    ts2=ts
+    for elem1 in ts:
+        ent1 = elem1.replace('0.FDO/','O.FDO-')
+        for elem2 in ts2:
+            if elem1 != elem2:
+#                if elem1 == '0.FDO/Profile':
+#                    print('---------------------' + elem2 )
+                found = False
+                for att in ts2[elem2]:
+ #                   if elem2 == '0.FDO/Cardinality':
+ #                       print(elem1 +'-----------' +list(att.values())[0]+'--')
+                    if list(att.values())[0].strip() == elem1 and not found:
+                        ent2 = elem2.replace('0.FDO/','O.FDO-')
+                        f.write(ent1 + ' ||--|| '+ ent2 + ' : ref \n')
+                        found = True
+                        
+                    
+
+    #CUSTOMER ||--o{ ORDER : places
+    #ORDER ||--|{ ORDER_ITEM : contains
+    #PRODUCT ||--o{ ORDER_ITEM : includes
+    #CUSTOMER {
+    #    string id
+    #    string name
+    #    string email
+    #}
+    #ORDER {
+    #    string id
+    #    date orderDate
+    #    string status
+    #}
+    #PRODUCT {
+    #    string id
+    #    string name
+    #    float price
+    #}
+    #ORDER_ITEM {
+    #    int quantity
+    #    float price
+    #})
+    f.write('```')
