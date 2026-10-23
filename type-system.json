@@ -35,6 +35,34 @@
         { "0.FDO/Description": "If the identified resource it digital, 0.FDO/Data points to the attribute that references the digital resource." },
         { "0.FDO/Cardinality": "0..n" }
     ],
+        "0.FDO/Metadata": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefUnion" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_metadata" },
+        { "0.FDO/Description": "The 0.FDO/Metadata attribute is the entry point to find the metadata associated with an FDO. If the identified resource is physical or conceptual, the string \"self\" is used. If the resource it digital, 0.FDO/Metadata points to the Attribute that references the digital resource." },
+        { "0.FDO/Cardinality": "1..n" },
+        { "0.FDO/AllowedAttribute": "0.FDO/MetadataAsSelf" },
+        { "0.FDO/AllowedAttribute": "0.FDO/MetadataAsAttrRef" }
+    ],
+        "0.FDO/MetadataAsSelf": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefSyntax" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_metadata_as_self" },
+        { "0.FDO/Description": "If identified resource is physical or conceptual, the string \"self\" is used as the value of 0.FDO/Metadata." },
+        { "0.FDO/Cardinality": "0..1" },
+        { "0.FDO/PrimitiveDataType": "string" },
+        { "0.FDO/Whitelist": "self" }
+    ],
+    "0.FDO/MetadataAsAttrRef": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefAttrRef" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_metadata_as_attr" },
+        { "0.FDO/Description": "If the identified resource it digital, 0.FDO/Metadata points to the attribute that references the digital resource." },
+        { "0.FDO/Cardinality": "0..n" }
+    ],
     "0.FDO/Profile": [
         { "0.FDO/Type": "0.FDO/Profile" },
         { "0.FDO/Profile": "0.FDO/AttributeDefProfileRef" },
