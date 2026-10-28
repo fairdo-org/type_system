@@ -44,7 +44,7 @@ The type system is build of 35 profiles.
     - Purpose: A human-readable explanation of the attribute.
     - Value: A string.
 
-## Restriction on mata and metadata attributes
+## Restriction on data and metadata attributes
 
 5. 0.FDO/DataAsAttrRef
     - Purpose: references a digital resource via an attribute reference (i.e., a PID pointing to another attribute)
@@ -92,8 +92,8 @@ The type system is build of 35 profiles.
     - Purpose: A list of rejected values.
     - Value: A string (e.g., "admin")
 
-
-
+7. 0.FDO/DenyAdditionalAttributes
+    - Purpose: Controls whether additional attributes (not defined in the profile) are allowed.
 
 ## Profiles
 
@@ -135,8 +135,13 @@ The type system is build of 35 profiles.
 
 
 ## Helper Profiles 
-0.FDO/Extends
-0.FDO/Attribute
-0.FDO/BasicAttribute
-0.FDO/RefinedAttribute
-0.FDO/DenyAdditionalAttributes
+
+1. 0.FDO/Extends
+    - Purpose: it extends the parent profile’s attributes and structure.
+2. 0.FDO/Attribute
+    - Purpose: it specifies which attributes are required by a profile.
+3. 0.FDO/BasicAttribute
+    - Purpose: used in RefinedAttribute to refernce the origin
+4. 0.FDO/RefinedAttribute
+    - Purpose: Allows to refine an attribute, e.g. adding cardinality
+
