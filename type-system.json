@@ -14,8 +14,8 @@
         { "0.FDO/Name": "FDO_data" },
         { "0.FDO/Description": "The 0.FDO/Data attribute is the entry point to find the data associated with an FDO. If the identified resource is physical or conceptual, the string \"self\" is used. If the resource it digital, 0.FDO/Data points to the Attribute that references the digital resource." },
         { "0.FDO/Cardinality": "1..*" },
-        { "0.FDO/AllowedAttribute": "0.FDO/DataAsSelf" },
-        { "0.FDO/AllowedAttribute": "0.FDO/DataAsAttrRef" }
+        { "0.FDO/AllowedAttributeInUnion": "0.FDO/DataAsSelf" },
+        { "0.FDO/AllowedAttributeInUnion": "0.FDO/DataAsAttrRef" }
     ],
     "0.FDO/DataAsSelf": [
         { "0.FDO/Type": "0.FDO/Profile" },
@@ -37,13 +37,11 @@
     ],
     "0.FDO/Metadata": [
         { "0.FDO/Type": "0.FDO/Profile" },
-        { "0.FDO/Profile": "0.FDO/AttributeDefUnion" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefAttrRef" },
         { "0.FDO/Data": "self" },
         { "0.FDO/Name": "FDO_metadata" },
-        { "0.FDO/Description": "The 0.FDO/Metadata attribute is the entry point to find the metadata associated with an FDO. If the identified resource is physical or conceptual, the string \"self\" is used. If the resource it digital, 0.FDO/Metadata points to the Attribute that references the digital resource." },
-        { "0.FDO/Cardinality": "1..*" },
-        { "0.FDO/AllowedAttribute": "0.FDO/MetadataAsSelf" },
-        { "0.FDO/AllowedAttribute": "0.FDO/MetadataAsAttrRef" }
+        { "0.FDO/Description": "The 0.FDO/Metadata attribute is the entry point to find metadata files associated with an FDO." },
+        { "0.FDO/Cardinality": "0..*" }
     ],
     "0.FDO/MetadataAsSelf": [
         { "0.FDO/Type": "0.FDO/Profile" },
@@ -70,7 +68,7 @@
         { "0.FDO/Name": "FDO_profile" },
         { "0.FDO/Description": "This attribute points to a FDO profile. The FDO profile is a template for any FDO record instantiating this profile." },
         { "0.FDO/Cardinality": "1..*" },
-        { "0.FDO/AllowedProfile": "0.FDO/ProfileDef" }
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/ProfileDef" }
     ],
     "0.FDO/Name": [
         { "0.FDO/Type": "0.FDO/Profile" },
@@ -246,6 +244,75 @@
         { "0.FDO/AllowedAttributeInUnion": "0.FDO/RefinedAttribute" },
         { "0.FDO/AllowedAttributeInUnion": "0.FDO/BasicAttribute" }
     ],
+    "0.FDO/ValidationStrategyForCombination": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefSyntax" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_validation_strategy_for_combination" },
+        { "0.FDO/Description": "An attribute can use several validation mechanisms simultaneously. Which validation mechanism applies depends on the profile(s) used by the attribute definition: 0.FDO/AttributeDefSyntax, 0.FDO/AttributeDefComb, 0.FDO/AttributeDefUnion, 0.FDO/AttributeDefProfileRef, and 0.FDO/AttributeDefAttrRef. If several of these profiles are used by one attribute definition, 0.FDO/ValidationStrategyForCombination determines whether at least one validation mechanism must apply (anyof), or all of them (allof). The default is allof, in which case the attribute can be omitted." },
+        { "0.FDO/Cardinality": "0..1" },
+        { "0.FDO/PrimitiveDataType": "string" },
+        { "0.FDO/Whitelist": "anyof" },
+        { "0.FDO/Whitelist": "allof" }
+    ],
+
+    "0.FDO/ImportVocabulary": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefProfileRef" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_vocabulary_import" },
+        { "0.FDO/Description": "The value references an FDO representing a vocabulary." },
+        { "0.FDO/Cardinality": "0..*" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/VocabularyDef" }
+    ],
+    "0.FDO/VocabularyFormat": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefSyntax" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_vocabulary_file_format" },
+        { "0.FDO/Description": "The file format of the downloadable vocabulary available using 0.FDO/Data." },
+        { "0.FDO/Cardinality": "0..1" },
+        { "0.FDO/PrimitiveDataType": "string" },
+        { "0.FDO/Whitelist": "RDF/XML" },
+        { "0.FDO/Whitelist": "TTL" },
+        { "0.FDO/Whitelist": "N-Triples" },
+        { "0.FDO/Whitelist": "N-Quads" },
+        { "0.FDO/Whitelist": "JSON-LD" }
+    ],
+    "0.FDO/VocabularyPrefix": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefProfileRef" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_vocabulary_prefix" },
+        { "0.FDO/Description": "Every unique prefix a vocabulary can be identified with when importing it into an FDO. e.g., schema:." },
+        { "0.FDO/Cardinality": "1..*" },
+        { "0.FDO/PrimitiveDataType": "string" }
+    ],
+    "0.FDO/SPARQL_Check": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefSyntax" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_vocabulary_SPARQL_check" },
+        { "0.FDO/Description": "A parameterized SPARQL query (using $TERM% as placeholder) checking whether a term is valid in a vocabulary (output is boolean)." },
+        { "0.FDO/Cardinality": "0..1" },
+        { "0.FDO/PrimitiveDataType": "string" }
+    ],
+    "0.FDO/LandingPage": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefAttributeRef" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_landing_page" },
+        { "0.FDO/Description": "An entry point to the resource primarily designed for human comprehension." },
+        { "0.FDO/Cardinality": "0..*" }
+    ],
+    "0.FDO/Contact": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefAttributeRef" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_contact" },
+        { "0.FDO/Description": "Some way to contact an entity responsible for this FDO or the resource behind it." },
+        { "0.FDO/Cardinality": "0..*" }
+    ],
     "0.FDO/Root": [
         { "0.FDO/Type": "0.FDO/Profile" },
         { "0.FDO/Profile": "0.FDO/ProfileDef" },
@@ -269,6 +336,18 @@
         { "0.FDO/Attribute": "0.FDO/Attribute" },
         { "0.FDO/Extends": "0.FDO/Root" }
     ],
+        "0.FDO/AttributeDef": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/ProfileDef" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_attribute_definition_profile" },
+        { "0.FDO/Description": "This FDO profile is the base template to define new attributes. It is extended by five different templates: 0.FDO/AttributeDefSyntax, 0.FDO/AttributeDefComb, 0.FDO/AttributeDefUnion, 0.FDO/AttributeDefProfileRef, and 0.FDO/AttributeDefAttrRef. Each of those templates can be instantiated to define new attributes based on certain validation rules. An attribute that only instantiates 0.FDO/AttributeDef (and none of the extending templates) is validated to be a string." },
+        { "0.FDO/Extends": "0.FDO/Root" },
+        { "0.FDO/Attribute": "0.FDO/Name" },
+        { "0.FDO/Attribute": "0.FDO/Description" },
+        { "0.FDO/Attribute": "0.FDO/Cardinality" },
+        { "0.FDO/Attribute": "0.FDO/ValidationStrategyForCombination" }
+    ],
     "0.FDO/AttributeDefSyntax": [
         { "0.FDO/Type": "0.FDO/Profile" },
         { "0.FDO/Profile": "0.FDO/ProfileDef" },
@@ -287,7 +366,7 @@
         { "0.FDO/Profile": "0.FDO/ProfileDef" },
         { "0.FDO/Data": "self" },
         { "0.FDO/Name": "FDO_attribute_definition_profile_for_profile_referencing" },
-        { "0.FDO/Description": "This profile is the template to define a new attribute that uses the profile referencing mechanism.\u00a0" },
+        { "0.FDO/Description": "This profile is the template to define a new attribute that uses the profile referencing mechanism." },
         { "0.FDO/Attribute": "0.FDO/AllowedProfilesInProfileRef" },
         { "0.FDO/Extends": "0.FDO/AttributeDef" }
     ],
@@ -296,18 +375,18 @@
         { "0.FDO/Profile": "0.FDO/ProfileDef" },
         { "0.FDO/Data": "self" },
         { "0.FDO/Name": "FDO_attribute_definition_profile_" },
-        { "0.FDO/Description": "This profile is the template to define a new attribute that uses the attribute referencing mechanism.\u00a0" },
+        { "0.FDO/Description": "This profile is the template to define a new attribute that uses the attribute referencing mechanism." },
         { "0.FDO/Extends": "0.FDO/AttributeDef" },
-        { "0.FDO/Attribute": "0.FDO/AllowedAttributesInAttrRef" },
-        { "0.FDO/Attribute": "0.FDO/AllowedPlainNamesInAttrRef" }
+        { "0.FDO/Attribute": "0.FDO/AllowedAttributeInAttrRef" },
+        { "0.FDO/Attribute": "0.FDO/AllowedPlainNameInAttrRef" }
     ],
     "0.FDO/AttributeDefComb": [
         { "0.FDO/Type": "0.FDO/Profile" },
         { "0.FDO/Profile": "0.FDO/ProfileDef" },
         { "0.FDO/Data": "self" },
         { "0.FDO/Name": "FDO_attribute_definition_profile_for_inline_combination" },
-        { "0.FDO/Description": "This profile is the template to define a new attribute that is an inline combination of existing attributes.\u00a0" },
-        { "0.FDO/Attribute": "0.FDO/AllowedAttributeIn" },
+        { "0.FDO/Description": "This profile is the template to define a new attribute that is an inline combination of existing attributes." },
+        { "0.FDO/Attribute": "0.FDO/AllowedAttributeInCombination" },
         { "0.FDO/Extends": "0.FDO/AttributeDef" }
     ],
     "0.FDO/AttributeDefUnion": [
@@ -315,31 +394,33 @@
         { "0.FDO/Profile": "0.FDO/ProfileDef" },
         { "0.FDO/Data": "self" },
         { "0.FDO/Name": "FDO_attribute_definition_profile_for_union" },
-        { "0.FDO/Description": "This profile is the template to define a new attribute that is a union of existing attributes.\u00a0" },
+        { "0.FDO/Description": "This profile is the template to define a new attribute that is a union of existing attributes." },
         { "0.FDO/Extends": "0.FDO/AttributeDef" },
         { "0.FDO/Attribute": "0.FDO/AllowedAttributeInUnion" }
     ],
-    "0.FDO/AttributeDef": [
+    "0.FDO/AttributeDefVocabularyRef": [
         { "0.FDO/Type": "0.FDO/Profile" },
         { "0.FDO/Profile": "0.FDO/ProfileDef" },
         { "0.FDO/Data": "self" },
-        { "0.FDO/Name": "FDO_attribute_definition_profile" },
-        { "0.FDO/Description": "This FDO profile is the base template to define new attributes. It is extended by five different templates:\u00a0 0.FDO/AttributeDefSyntax, 0.FDO/AttributeDefComb, 0.FDO/AttributeDefUnion, 0.FDO/AttributeDefProfileRef, and 0.FDO/AttributeDefAttrRef. Each of those templates can be instantiated to define new attributes based on certain validation rules. An attribute that only instantiates 0.FDO/AttributeDef (and none of the extending templates) is validated to be a string." },
+        { "0.FDO/Name": "FDO_attribute_definition_profile_for_external_vocabulary_referencing" },
+        { "0.FDO/Description": "This profile is the template to define a new attribute that uses the external vocabulary referencing mechanism." },
+        { "0.FDO/Extends": "0.FDO/AttributeDef" },
+        { "0.FDO/Attribute": "0.FDO/ImportVocabulary" },
+        { "0.FDO/Attribute": "0.FDO/SPARQL_Check" }
+    ],
+    "0.FDO/VocabularyDef": [
+        { "0.FDO/Type": "0.FDO/Profile" },
+        { "0.FDO/Profile": "0.FDO/ProfileDef" },
+        { "0.FDO/Data": "self" },
+        { "0.FDO/Name": "FDO_vocabulary_defintion_profile" },
+        { "0.FDO/Description": "This profile specifies how to describe vocabularies such that they can be imported into an FDO." },
         { "0.FDO/Extends": "0.FDO/Root" },
         { "0.FDO/Attribute": "0.FDO/Name" },
         { "0.FDO/Attribute": "0.FDO/Description" },
-        { "0.FDO/Attribute": "0.FDO/Cardinality" },
-        { "0.FDO/Attribute": "0.FDO/ValidationStrategyForCombination" }
-    ],
-    "0.FDO/ValidationStrategyForCombination": [
-        { "0.FDO/Type": "0.FDO/Profile" },
-        { "0.FDO/Profile": "0.FDO/AttributeDefSyntax" },
-        { "0.FDO/Data": "self" },
-        { "0.FDO/Name": "FDO_validation_strategy_for_combination" },
-        { "0.FDO/Description": "An attribute can use several validation mechanisms simultaneously. Which validation mechanism applies depends on the profile(s) used by the attribute definition: 0.FDO/AttributeDefSyntax, 0.FDO/AttributeDefComb, 0.FDO/AttributeDefUnion, 0.FDO/AttributeDefProfileRef, and 0.FDO/AttributeDefAttrRef. If several of these profiles are used by one attribute definition, 0.FDO/ValidationStrategyForCombination determines whether at least one validation mechanism must apply (anyof), or all of them (allof). The default is allof, in which case the attribute can be omitted." },
-        { "0.FDO/Cardinality": "0..1" },
-        { "0.FDO/PrimitiveDataType": "string" },
-        { "0.FDO/Whitelist": "anyof" },
-        { "0.FDO/Whitelist": "allof" }
+        { "0.FDO/Attribute": "0.FDO/VocabularyPrefix" },
+        { "0.FDO/Attribute": "0.FDO/LandingPage" },
+        { "0.FDO/Attribute": "0.FDO/SPARQL_Check" },
+        { "0.FDO/Attribute": "0.FDO/VocabularyFormat" },
+        { "0.FDO/Attribute": "0.FDO/Contact" }
     ]
 }
