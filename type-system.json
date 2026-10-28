@@ -299,7 +299,7 @@
     ],
     "0.FDO/LandingPage": [
         { "0.FDO/Type": "0.FDO/Profile" },
-        { "0.FDO/Profile": "0.FDO/AttributeDefAttributeRef" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefAttrRef" },
         { "0.FDO/Data": "self" },
         { "0.FDO/Name": "FDO_landing_page" },
         { "0.FDO/Description": "An entry point to the resource primarily designed for human comprehension." },
@@ -307,7 +307,7 @@
     ],
     "0.FDO/Contact": [
         { "0.FDO/Type": "0.FDO/Profile" },
-        { "0.FDO/Profile": "0.FDO/AttributeDefAttributeRef" },
+        { "0.FDO/Profile": "0.FDO/AttributeDefAttrRef" },
         { "0.FDO/Data": "self" },
         { "0.FDO/Name": "FDO_contact" },
         { "0.FDO/Description": "Some way to contact an entity responsible for this FDO or the resource behind it." },
