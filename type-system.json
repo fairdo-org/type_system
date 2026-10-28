@@ -192,8 +192,12 @@
         { "0.FDO/Name": "FDO_allowed_attribute_in_union" },
         { "0.FDO/Description": "An attribute that is part of a union. The value is either a reference to an attribute, or a combination of an attribute and a localized cardinality." },
         { "0.FDO/Cardinality": "0..*" },
-        { "0.FDO/AllowedAttributeInUnion": "0.FDO/RefinedAttribute" },
-        { "0.FDO/AllowedAttributeInUnion": "0.FDO/BasicAttribute" }
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDef" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefSyntax" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefUnion" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefComb" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefAttrRef" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefProfileRef" }
     ],
     "0.FDO/BasicAttribute": [
         { "0.FDO/Type": "0.FDO/Profile" },
@@ -202,7 +206,12 @@
         { "0.FDO/Name": "FDO_basic_attribute" },
         { "0.FDO/Description": "A reference (PID) to an FDO attribute. Used in profiles, unions and inline combinations to specify which attributes must be in FDOs." },
         { "0.FDO/Cardinality": "0..*" },
-        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDef" }
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDef" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefSyntax" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefUnion" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefComb" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefAttrRef" },
+        { "0.FDO/AllowedProfileInProfileRef": "0.FDO/AttributeDefProfileRef" }
     ],
     "0.FDO/RefinedAttribute": [
         { "0.FDO/Type": "0.FDO/Profile" },
@@ -211,8 +220,8 @@
         { "0.FDO/Name": "FDO_refined_attribute" },
         { "0.FDO/Description": "An attribute that is refined in a new context. The value is a combination of an attribute and a localized cardinality adapted to the new context." },
         { "0.FDO/Cardinality": "0..*" },
-        { "0.FDO/Attribute": "0.FDO/Cardinality" },
-        { "0.FDO/Attribute": "0.FDO/BasicAttribute" }
+        { "0.FDO/AllowedAttributeInCombination": "0.FDO/Cardinality" },
+        { "0.FDO/AllowedAttributeInCombination": "0.FDO/BasicAttribute" }
     ],
     "0.FDO/DenyAdditionalAttributes": [
         { "0.FDO/Type": "0.FDO/Profile" },
