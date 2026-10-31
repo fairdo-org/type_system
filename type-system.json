@@ -376,7 +376,7 @@
         { "0.FDO/Data": "self" },
         { "0.FDO/Name": "FDO_attribute_definition_profile_for_profile_referencing" },
         { "0.FDO/Description": "This profile is the template to define a new attribute that uses the profile referencing mechanism." },
-        { "0.FDO/Attribute": "0.FDO/AllowedProfilesInProfileRef" },
+        { "0.FDO/Attribute": "0.FDO/AllowedProfileInProfileRef" },
         { "0.FDO/Extends": "0.FDO/AttributeDef" }
     ],
     "0.FDO/AttributeDefAttrRef": [
